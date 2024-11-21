@@ -1,21 +1,14 @@
-# AWS Infra Basics
+# S3 Bucket Setup with Versioning
 
-This repository contains examples of setting up basic AWS infrastructure using **AWS CLI** and **CloudFormation**. These examples are designed for beginners who want to learn the fundamentals of AWS.
+This section provides a step-by-step guide to create an S3 bucket and enable versioning using AWS CLI.
 
----
+## Step 1: Create an S3 Bucket
 
-## Features
-- **S3 Bucket Setup**: Create and configure S3 buckets with versioning and lifecycle policies.
-- **EC2 Instance Creation**: Launch EC2 instances with security groups and key pairs.
-- **Basic VPC Setup**: Deploy a simple Virtual Private Cloud (VPC) with subnets, route tables, and an internet gateway.
-- **CloudFormation Templates**: Automate resource creation using CloudFormation.
+Run the following command to create an S3 bucket. Replace `my-bucket-name` with a globally unique name for your bucket, and specify your desired region.
 
----
+```bash
+aws s3api create-bucket --bucket my-bucket-name --region us-east-1
 
-## Getting Started
+aws s3api put-bucket-versioning --bucket my-bucket-name --versioning-configuration Status=Enabled
 
-### Prerequisites
-1. Install the **AWS CLI**: [AWS CLI Installation Guide](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html).
-2. Configure AWS CLI with your credentials:
-   ```bash
-   aws configure
+
